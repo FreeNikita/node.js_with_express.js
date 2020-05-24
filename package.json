@@ -1,0 +1,15 @@
+{
+  "name": "node.js",
+  "version": "1.0.0",
+  "description": "Node.js + express.js Practice",
+  "main": "index.js",
+  "scripts": {
+    "staer": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "Nikita Kurochka <freenikita95@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
