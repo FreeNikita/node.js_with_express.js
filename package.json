@@ -10,7 +10,9 @@
   "author": "Nikita Kurochka <freenikita95@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.4",
+    "npm": "^6.14.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
