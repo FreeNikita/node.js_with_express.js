@@ -2,15 +2,9 @@
     <div class="nav-wrapper">
         <a href="#" class="brand-logo">Course App</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li>
-                <a href="/">Home</a>
-            </li>
-            <li>
-                <a href="/courses">Courses</a>
-            </li>
-            <li>
-                <a href="/add">Add course</a>
-            </li>
+            <li {{#if isHome}} class="active" {{/if}}> <a href="/">Home</a> </li>
+            <li {{#if isCourses}} class="active" {{/if}}><a href="/courses">Courses</a></li>
+            <li {{#if isAdd}} class="active"{{/if}}><a href="/add">Add course</a></li>
         </ul>
     </div>
 </nav>
