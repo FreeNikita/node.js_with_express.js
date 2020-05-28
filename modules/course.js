@@ -10,6 +10,15 @@ class Course {
         this.id = uuid()
     }
 
+    toJson(){
+        return {
+            title: this.tile,
+            price: this.price,
+            image: this.image,
+            id: this.id,
+        }
+    }
+
     async save() {
         const courses = await Course.getAll()
         courses.push(this.toJson())
@@ -24,15 +33,6 @@ class Course {
                 }
             )
         }))
-    }
-
-    toJson(){
-        return JSON.stringify({
-            tile: this.tile,
-            price: this.price,
-            image: this.image,
-            id: this.id,
-        })
     }
 
     static getAll() {
