@@ -2,10 +2,10 @@
 
 
 {{#if courses.length}}
-
-    {{#each courses}}
     <div class="row">
-        <div class="col s6 offset-s3">
+    {{#each courses}}
+
+        <div class="col s3">
             <div class="card">
                 <div class="card-image">
                     <img src="{{image}}" alt="{{title}}">
@@ -14,15 +14,19 @@
                     <span class="card-title">{{title}}</span>
                     <p class="price">{{price}}</p>
                 </div>
-                <div class="card-action">
-                    <a href="/courses/{{id}}" target="_blank">Open course</a>
+                <div class="card-action active-row">
+                    <a href="/courses/{{id}}" target="_blank">Open</a>
                     <a href="/courses/{{id}}/edit?allow=true" >Edit</a>
+                    <form action="/card/add" method="POST">
+                        <input name="id" hidden value="{{id}}">
+                        <button class="btn" type="submit">Add</button>
+                    </form>
                 </div>
             </div>
         </div>
-    </div>
-    {{/each}}
 
+    {{/each}}
+    </div>
 {{else}}
     <p>Courses list is empty</p>
 {{/if}}
