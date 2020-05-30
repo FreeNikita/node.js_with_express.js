@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "staer": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "../node_modules/.bin/nodemon index.js"
   },
   "author": "Nikita Kurochka <freenikita95@gmail.com>",
   "license": "ISC",

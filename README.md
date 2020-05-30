@@ -1,6 +1,6 @@
-<h1> How to start</h1>
+<h1> Practice with node.js + express.  </h1>
   
-You can start in console: 
 
-* `npm install`
-* `npm run dev`
+
+* `without database` - Base project. I used files for saving data. 
+
