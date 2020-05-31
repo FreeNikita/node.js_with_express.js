@@ -1,0 +1,32 @@
+<h1>Courses</h1>
+
+
+{{#if courses.length}}
+    <div class="row">
+    {{#each courses}}
+
+        <div class="col s12 m6 l4 xl4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="{{image}}" alt="{{title}}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title">{{title}}</span>
+                    <p class="price">{{price}}</p>
+                </div>
+                <div class="card-action active-row">
+                    <a href="/courses/{{id}}" target="_blank">Open</a>
+                    <a href="/courses/{{id}}/edit?allow=true" >Edit</a>
+                    <form action="/card/add" method="POST">
+                        <input name="id" hidden value="{{id}}">
+                        <button class="btn" type="submit">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    {{/each}}
+    </div>
+{{else}}
+    <p>Courses list is empty</p>
+{{/if}}

@@ -1,4 +1,5 @@
-*/package-lock.json
-node_modules
-*/node_modules
+with mongodb/package-lock.json
+without database/package-lock.json
+with mongodb/node_modules
+without database/node_modules
 .idea
