@@ -38,6 +38,7 @@ async function start(){
         const  url = "mongodb+srv://nikita:JaB5sqmHVoyLzfaT@cluster0-boop9.mongodb.net/shop"
         await mongose.connect(url, {
             useNewUrlParser: true,
+            useFindAndModify: false,
             useUnifiedTopology: true
         })
 
