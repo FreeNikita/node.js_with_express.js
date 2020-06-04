@@ -10,8 +10,8 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-    const { title, price, image} = req.body
-    const course = new Course({title, price, image})
+    const { body: {title, price, image}, user: {_id: userId }} = req
+    const course = new Course({title, price, image, userId })
 
     try{
         await course.save()

@@ -11,6 +11,8 @@ const addRoutes = require('./routers/add')
 const coursesRoutes = require('./routers/courses')
 const cardRoutes = require('./routers/card')
 
+const User = require('./modules/user')
+
 const app = express()
 
 const hbs = expressHandlebars.create({
@@ -22,6 +24,17 @@ const hbs = expressHandlebars.create({
 app.engine('hbs', hbs.engine)
 app.set('view engine', 'hbs');
 app.set('views', 'views')
+
+app.use(async (req, res, next) => {
+    try{
+        const user = await User.findById("5ed94486c5ab6d11fdcb358d")
+        req.user = user
+        next()
+    } catch (err) {
+        console.log('err', err)
+    }
+
+})
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({extended: true}))
@@ -41,6 +54,17 @@ async function start(){
             useFindAndModify: false,
             useUnifiedTopology: true
         })
+
+        const candidate = await User.findOne()
+
+        if(!candidate) {
+            const user = new User({
+                email: 'test@test.test',
+                name: 'TestUser',
+                cart: { items: []}
+            })
+            await user.save()
+        }
 
         app.listen(PORT, () => {
             console.log(`Server is running on port ${PORT}`)

@@ -23,7 +23,6 @@ if($card) {
             })
                 .then(res => res.json())
                 .then(card => {
-                    console.log(card)
                     if(card.courses.length){
                         const html = card.courses.map(c =>
                             `<tr>
