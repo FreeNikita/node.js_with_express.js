@@ -1,25 +1,8 @@
 const { Router } = require('express')
 const Course = require('../modules/course')
-const User = require('../modules/user')
 const router = Router()
 
-function mapCourseToPage(carts) {
-    let courses = [],
-        price = 0
-
-    for (const course of carts) {
-        courses.push({
-            ...course.courseId._doc,
-            id: course.courseId._doc._id,
-            count: course.count
-        })
-        price += course.courseId.price
-    }
-
-    return { courses , price }
-}
-
-const getUserCart = async (id) => User.findById(id).populate('cart.items.courseId')
+const { getUserCart, mapCourseToPage } = require('../helper/index')
 
 router.get("/", async (req, res) => {
     const user = await getUserCart(req.user._id)

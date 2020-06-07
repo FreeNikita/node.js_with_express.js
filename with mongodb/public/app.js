@@ -1,14 +1,30 @@
-function getCurrencies (price) {
+const getCurrencies = price => {
     return new Intl.NumberFormat('ua-UA', {
         currency: 'UAH',
         style: 'currency'
     }).format(price)
 }
 
+const toDate = (date) => {
+    return new Intl.DateTimeFormat('ua-UA', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+    }).format(new Date(date))
+}
+
 const allPrices = document.querySelectorAll('.price')
+const allDate = document.querySelectorAll('.date')
 
 allPrices.forEach(node => {
     node.textContent = getCurrencies(node.textContent)
+})
+
+allDate.forEach(node => {
+    node.textContent = toDate(node.textContent)
 })
 
 const $card = document.getElementById('card')
