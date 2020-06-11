@@ -11,6 +11,7 @@ const addRoutes = require('./routers/add')
 const coursesRoutes = require('./routers/courses')
 const cardRoutes = require('./routers/card')
 const orderRoutes = require('./routers/orders')
+const authRoutes = require('./routers/auth')
 
 const User = require('./modules/user')
 
@@ -44,6 +45,7 @@ app.use('/add', addRoutes)
 app.use('/courses', coursesRoutes)
 app.use('/card', cardRoutes)
 app.use('/orders', orderRoutes)
+app.use('/auth', authRoutes)
 
 const PORT = process.env.PORT || 3000
 

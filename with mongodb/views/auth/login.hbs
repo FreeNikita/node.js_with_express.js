@@ -1,0 +1,58 @@
+<div class="auth">
+
+<div class="row">
+    <div class="col s12">
+        <ul class="tabs">
+            <li class="tab col s6"><a class='active' href="#login">Login</a></li>
+            <li class="tab col s6"><a href="#register">Registration</a></li>
+        </ul>
+    </div>
+    <div id="login" class="col s6 offset-s3 text-center">
+
+        <h1>Enter to shop</h1>
+        <form action="/add" method="POST">
+            <div class="input-field">
+                <input id="email"name="email" type="email" class="validate" required>
+                <label for="email">Email</label>
+                <span class="helper-text" data-error="Enter email"></span>
+
+            </div>
+
+            <div class="input-field">
+                <input id="password" name="password" type="password" class="validate">
+                <label for="password">Password</label>
+                <span class="helper-text" data-error="Enter Password"></span>
+            </div>
+
+            <button type="submit" class="btn">Login</button>
+        </form>
+
+    </div>
+    <div id="register" class="col s6 offset-s3 text-center">
+        <h1>Registration</h1>
+        <form action="/add" method="POST">
+            <div class="input-field">
+                <input id="r_email"name="r_email" type="email" class="validate" required>
+                <label for="r_email">Email</label>
+                <span class="helper-text" data-error="Enter email"></span>
+            </div>
+
+            <div class="input-field">
+                <input id="r_password" name="r_password" type="password" class="validate">
+                <label for="r_password">Password</label>
+                <span class="helper-text" data-error="Enter Password"></span>
+            </div>
+
+            <div class="input-field">
+                <input id="r_password_confirm" name="r_password_confirm" type="password" class="validate">
+                <label for="r_password_confirm">Conform Password</label>
+                <span class="helper-text" data-error="Enter Conform Password"></span>
+            </div>
+
+            <button type="submit" class="btn">Registration</button>
+        </form>
+
+    </div>
+</div>
+
+</div>
