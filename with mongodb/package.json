@@ -11,8 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "@handlebars/allow-prototype-access": "^1.0.3",
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "express-handlebars": "^4.0.4",
+    "express-session": "^1.17.1",
     "handlebars": "^4.7.6",
     "mongoose": "^5.9.16",
     "npm": "^6.14.5"

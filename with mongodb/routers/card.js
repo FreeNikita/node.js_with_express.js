@@ -5,7 +5,7 @@ const router = Router()
 const { getUserCart, mapCourseToPage } = require('../helper/index')
 
 router.get("/", async (req, res) => {
-    const user = await getUserCart(req.user._id)
+    const user = await getUserCart(req.session.user._id)
     const { courses, price } = mapCourseToPage(user.cart.items)
 
     res.render('card', {

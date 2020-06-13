@@ -16,11 +16,13 @@
                 </div>
                 <div class="card-action active-row">
                     <a href="/courses/{{id}}" target="_blank">Open</a>
-                    <a href="/courses/{{id}}/edit?allow=true" >Edit</a>
-                    <form action="/card/add" method="POST">
-                        <input name="id" hidden value="{{id}}">
-                        <button class="btn" type="submit">Add</button>
-                    </form>
+                    {{#if @root.isAuth}}
+                        <a href="/courses/{{id}}/edit?allow=true" >Edit</a>
+                        <form action="/card/add" method="POST">
+                            <input name="id" hidden value="{{id}}">
+                            <button class="btn" type="submit">Add</button>
+                        </form>
+                    {{/if }}
                 </div>
             </div>
         </div>

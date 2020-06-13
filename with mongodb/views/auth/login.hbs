@@ -10,7 +10,7 @@
     <div id="login" class="col s6 offset-s3 text-center">
 
         <h1>Enter to shop</h1>
-        <form action="/add" method="POST">
+        <form action="/auth/login" method="POST">
             <div class="input-field">
                 <input id="email"name="email" type="email" class="validate" required>
                 <label for="email">Email</label>
@@ -30,21 +30,28 @@
     </div>
     <div id="register" class="col s6 offset-s3 text-center">
         <h1>Registration</h1>
-        <form action="/add" method="POST">
+        <form action="/auth/registration" method="POST">
+
             <div class="input-field">
-                <input id="r_email"name="r_email" type="email" class="validate" required>
+                <input id="name" name="name" type="text" class="validate" required>
+                <label for="name">Name</label>
+                <span class="helper-text" data-error="Enter name"></span>
+            </div>
+
+            <div class="input-field">
+                <input id="r_email"name="email" type="email" class="validate" required>
                 <label for="r_email">Email</label>
                 <span class="helper-text" data-error="Enter email"></span>
             </div>
 
             <div class="input-field">
-                <input id="r_password" name="r_password" type="password" class="validate">
+                <input id="r_password" name="password" type="password" class="validate">
                 <label for="r_password">Password</label>
                 <span class="helper-text" data-error="Enter Password"></span>
             </div>
 
             <div class="input-field">
-                <input id="r_password_confirm" name="r_password_confirm" type="password" class="validate">
+                <input id="r_password_confirm" name="password_confirm" type="password" class="validate">
                 <label for="r_password_confirm">Conform Password</label>
                 <span class="helper-text" data-error="Enter Conform Password"></span>
             </div>
