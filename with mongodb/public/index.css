@@ -47,3 +47,11 @@
 .text-center {
     text-align: center;
 }
+
+.error {
+    font-size: 18px;
+    color: #de1515;
+    padding: 1rem;
+    border-radius: 15px;
+    background-color: rgba(255, 0, 0, 0.3);
+}

@@ -4,12 +4,14 @@
     <div class="col s12">
         <ul class="tabs">
             <li class="tab col s6"><a class='active' href="#login">Login</a></li>
-            <li class="tab col s6"><a href="#register">Registration</a></li>
+            <li class="tab col s6"><a href="#registration">Registration</a></li>
         </ul>
     </div>
     <div id="login" class="col s6 offset-s3 text-center">
-
         <h1>Enter to shop</h1>
+        {{#if logError}}
+            <p class="error">{{logError}}</p>
+        {{/if}}
         <form action="/auth/login" method="POST">
             <div class="input-field">
                 <input id="email"name="email" type="email" class="validate" required>
@@ -24,14 +26,21 @@
                 <span class="helper-text" data-error="Enter Password"></span>
             </div>
 
+            <p><a href="/auth/reset">Forgot password</a></p>
+
+            <input name="_csrf" value="{{csrf}}" hidden>
+
             <button type="submit" class="btn">Login</button>
         </form>
 
     </div>
-    <div id="register" class="col s6 offset-s3 text-center">
+    <div id="registration" class="col s6 offset-s3 text-center">
         <h1>Registration</h1>
+        {{registerError}}
+        {{#if registerError}}
+            <p class="error">{{registerError}}</p>
+        {{/if}}
         <form action="/auth/registration" method="POST">
-
             <div class="input-field">
                 <input id="name" name="name" type="text" class="validate" required>
                 <label for="name">Name</label>
@@ -55,6 +64,8 @@
                 <label for="r_password_confirm">Conform Password</label>
                 <span class="helper-text" data-error="Enter Conform Password"></span>
             </div>
+
+            <input name="_csrf" value="{{csrf}}" hidden>
 
             <button type="submit" class="btn">Registration</button>
         </form>
