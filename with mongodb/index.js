@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const mongose = require('mongoose')
 const session = require('express-session')
+const MongoStore = require('connect-mongodb-session')(session)
 const csurf = require('csurf')
 const flash = require('connect-flash')
 
@@ -24,7 +25,13 @@ const app = express()
 const hbs = expressHandlebars.create({
     handlebars: allowInsecurePrototypeAccess(Handlebars),
     defaultLayout: 'main',
-    extname: 'hbs'
+    extname: 'hbs',
+    helpers: require("./untils/hbs-helper")
+})
+
+const store = new MongoStore({
+    collection: 'sessions',
+    uri: keys.MONGO_URL
 })
 
 app.engine('hbs', hbs.engine)
@@ -36,15 +43,14 @@ app.use(express.urlencoded({extended: true}))
 app.use(session({
     secret: keys.SESSION_SECRET,
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store
 }))
-
 
 app.use(csurf({}))
 app.use(flash())
 app.use(authMiddleware)
 app.use(userMiddleware)
-
 
 app.use('/', homeRoutes)
 app.use('/add', isAuthMiddleware, addRoutes)

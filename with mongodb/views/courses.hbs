@@ -17,7 +17,11 @@
                 <div class="card-action active-row">
                     <a href="/courses/{{id}}" target="_blank">Open</a>
                     {{#if @root.isAuth}}
-                        <a href="/courses/{{id}}/edit?allow=true" >Edit</a>
+
+                        {{#ifeq userId._id @root.userId}}
+                            <a href="/courses/{{id}}/edit?allow=true" >Edit</a>
+                        {{/ifeq}}
+
                         <form action="/card/add" method="POST">
                             <input name="_csrf" value="{{@root.csrf}}" hidden>
                             <input name="id" hidden value="{{id}}">
