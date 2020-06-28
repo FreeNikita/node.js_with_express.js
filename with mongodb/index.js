@@ -17,7 +17,7 @@ const cardRoutes = require('./routers/card')
 const orderRoutes = require('./routers/orders')
 const authRoutes = require('./routers/auth')
 
-const { authMiddleware, isAuthMiddleware, userMiddleware } = require('./middleware')
+const { authMiddleware, isAuthMiddleware, userMiddleware, errorPage } = require('./middleware')
 const keys = require('./keys')
 
 const app = express()
@@ -58,6 +58,8 @@ app.use('/courses', coursesRoutes)
 app.use('/card', isAuthMiddleware, cardRoutes)
 app.use('/orders', isAuthMiddleware, orderRoutes)
 app.use('/auth', authRoutes)
+
+app.use(errorPage)
 
 async function start(){
     try {

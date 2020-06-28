@@ -18,8 +18,15 @@ const userMiddleware = async (req, res, next) => {
     next()
 }
 
+const errorPage = (req, res, next) => {
+    res.status(404).render('404', {
+        title: 'Page is not found'
+    })
+}
+
 module.exports = {
     authMiddleware,
     isAuthMiddleware,
-    userMiddleware
+    userMiddleware,
+    errorPage
 }
