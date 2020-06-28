@@ -4,3 +4,4 @@ with mongodb/node_modules
 without database/node_modules
 .idea
 /with mongodb/images
+/with mongodb/.env
