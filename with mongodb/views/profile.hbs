@@ -1,0 +1,38 @@
+<h1>Профиль</h1>
+
+<div class="row">
+    <div class="col s12 m12 l6">
+        <img
+                class="avatar"
+                src="https://avatars2.githubusercontent.com/u/499550?s=460&v=4"
+                alt=""
+        >
+        <p>Avatar is empty</p>
+    </div>
+
+    <div class="col s12 m12 l6">
+        <form action="/profile" method="POST">
+            <p>Your email: <strong>{{user.email}}</strong></p>
+
+            <div class="input-field">
+                <input id="name" name="name" type="text" class="validate" required value="{{user.name}}">
+                <label for="name">Your name</label>
+                <span class="helper-text" data-error="Enter your name"></span>
+            </div>
+
+            <div class="file-field input-field">
+                <div class="btn">
+                    <span>Avatar</span>
+                    <input type="file" name="avatar">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+            </div>
+
+            <input type="hidden" name="_csrf" value="{{csrf}}">
+
+            <button type="submit" class="btn">Update</button>
+        </form>
+    </div>
+</div>
