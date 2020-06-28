@@ -43,7 +43,6 @@ const loginValidator = [
             if(!isLogin) {
                 return Promise.reject("Email or password are not valid")
             }
-            console.log("asd")
 
             return true
         } catch (e) {

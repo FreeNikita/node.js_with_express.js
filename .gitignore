@@ -3,3 +3,4 @@ without database/package-lock.json
 with mongodb/node_modules
 without database/node_modules
 .idea
+/with mongodb/images

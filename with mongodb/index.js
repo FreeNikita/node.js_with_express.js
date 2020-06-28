@@ -19,6 +19,7 @@ const authRoutes = require('./routers/auth')
 const profileRoutes = require('./routers/profile')
 
 const { authMiddleware, isAuthMiddleware, userMiddleware, errorPage } = require('./middleware')
+const { fileMiddleware } = require('./middleware/file')
 const keys = require('./keys')
 
 const app = express()
@@ -40,6 +41,7 @@ app.set('view engine', 'hbs');
 app.set('views', 'views')
 
 app.use(express.static(path.join(__dirname, 'public')))
+app.use("/images", express.static(path.join(__dirname, 'images')))
 app.use(express.urlencoded({extended: true}))
 app.use(session({
     secret: keys.SESSION_SECRET,
@@ -48,6 +50,7 @@ app.use(session({
     store
 }))
 
+app.use(fileMiddleware.single('avatar'))
 app.use(csurf({}))
 app.use(flash())
 app.use(authMiddleware)

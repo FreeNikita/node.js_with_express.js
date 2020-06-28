@@ -5,7 +5,6 @@ const router = Router()
 
 router.get("/", async (req, res) => {
     const card = await Card.fetch()
-    // console.log(card)
     res.render('card', {
         title: "Card",
         isCard: true,
