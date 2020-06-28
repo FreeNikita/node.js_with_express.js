@@ -41,7 +41,6 @@ const loginValidator = [
             const isLogin = await bcryptjs.compare(req.body.password, candidate.password)
 
             if(!isLogin) {
-                console.log("asdsad")
                 return Promise.reject("Email or password are not valid")
             }
             console.log("asd")
