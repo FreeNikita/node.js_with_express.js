@@ -60,3 +60,10 @@
     max-width: 300px;
     height: auto;
 }
+
+.info {
+    background: rgba(145, 164, 250, 0.4);
+    padding: 4px;
+    border-radius: 4px;
+    font-size: 14px;
+}
