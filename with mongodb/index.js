@@ -5,10 +5,11 @@ const session = require('express-session')
 const MongoStore = require('connect-mongodb-session')(session)
 const csurf = require('csurf')
 const flash = require('connect-flash')
-
+const helmet = require('helmet')
 const Handlebars = require('handlebars')
 const expressHandlebars = require('express-handlebars');
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
+const compression = require('compression')
 
 const homeRoutes = require('./routers/home')
 const addRoutes = require('./routers/add')
@@ -53,6 +54,8 @@ app.use(session({
 app.use(fileMiddleware.single('avatar'))
 app.use(csurf({}))
 app.use(flash())
+app.use(helmet())
+app.use(compression())
 app.use(authMiddleware)
 app.use(userMiddleware)
 
